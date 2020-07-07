@@ -505,6 +505,7 @@ static int surface_sam_dtx_probe(struct platform_device *pdev)
 		goto err_register;
 
 	// set up events
+	// note: the registry might not be correct for SB3
 	ddev->notif.base.priority = 1;
 	ddev->notif.base.fn = surface_dtx_notification;
 	ddev->notif.event.reg = SSAM_EVENT_REGISTRY_SAM;
@@ -580,3 +581,4 @@ module_platform_driver(surface_sam_dtx);
 MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 MODULE_DESCRIPTION("Surface Detachment System (DTX) Driver for 5th Generation Surface Devices");
 MODULE_LICENSE("GPL");
+MODULE_ALIAS("platform:surface_sam_dtx");
